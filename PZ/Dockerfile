@@ -5,7 +5,7 @@ LABEL maintainer="vzylexy@gmail.com"
 ENV STEAMAPPID 380870
 ENV STEAMAPP pzserver
 ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
-ENV DLURL 
+ENV DLURL https://raw.githubusercontent.com/Vzylexy/Docker/main/PZ
 
 RUN set -x \
     && apt-get update \
@@ -17,7 +17,7 @@ RUN set -x \
     libc6-dev=2.31-13+deb11u7 \
     file=1:5.39-3+deb11u1 \
     && mkdir -p "${STEAMAPPDIR}" \
-    && wget --max-redirect=30 "${DLURL}/master/scripts/run.sh" -O "${HOMEDIR}/run.sh" \
+    && wget --max-redirect=30 "${DLURL}/scripts/run.sh" -O "${HOMEDIR}/run.sh" \
     && chmod +x "${HOMEDIR}/run.sh" \
     && chown -R "${USER}:${USER}" "${HOMEDIR}/run.sh" "${STEAMAPPDIR}" \
     # Clean up
